@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex Gym - Register</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="register-container">
+            <div class="register-box">
+                <h2>Create Account</h2>
+                <form class="register-form" action="register.php" method="POST">
+                    <div class="user-type-selector">
+                        <button class="user-type active" data-type="gym-goer">Gym Goer</button>
+                        <button class="user-type" data-type="trainer">Trainer</button>
+                        <button class="user-type" data-type="seller">Seller</button>
+                    </div>
+                    <div class="form-section personal-info">
+                        <h3>Personal Information</h3>
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" name="full_name" id="fullName" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" name="email" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" name="phone" id="phoneNumber" placeholder="Phone Number" required>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <i class="fas fa-calendar"></i>
+                                <input type="date" name="dob" id="dob" required>
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-venus-mars"></i>
+                                <select name="gender" required id="gender">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section account-info">
+                        <h3>Account Details</h3>
+                        <div class="input-group">
+                            <i class="fas fa-user-circle"></i>
+                            <input type="text" name="username" id="username" placeholder="Username" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                        </div>
+                    </div>
+
+                    <div class="form-section membership" id="membership-section">
+                        <h3>Membership Preferences</h3>
+                        <div class="input-group">
+                            <i class="fas fa-dumbbell"></i>
+                            <select name="membership_plan" id="membership" required>
+                                <option value="">Select Membership Plan</option>
+                                <option value="basic">Basic Plan</option>
+                                <option value="premium">Premium Plan</option>
+                                <option value="elite">Elite Plan</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-user-friends"></i>
+                            <select name="preferred_trainer" id="trainer">
+                                <option value="">Preferred Trainer (Optional)</option>
+                                <option value="trainer1">John Doe</option>
+                                <option value="trainer2">Jane Smith</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="terms-container">
+                        <label class="terms-checkbox">
+                            <input type="checkbox" name="terms" required>
+                            <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="register-btn">Create Account</button>
+                </form>
+                <div class="login-link">
+                    <p>Already have an account? <a href="index.html">Login Here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

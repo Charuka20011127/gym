@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Account Management</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/gym-owner.css">
+    <link rel="stylesheet" href="../assets/css/account-management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="owner-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Owner Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>Trainer Management</h4>
+                    <a href="list.html">
+                        <i class="fas fa-users"></i>
+                        View Trainers
+                    </a>
+                    <a href="#" data-toggle="modal" data-target="#addTrainerModal">
+                        <i class="fas fa-user-plus"></i>
+                        Add Trainer
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Gym Management</h4>
+                    <a href="manage.html" class="active">
+                        <i class="fas fa-cog"></i>
+                        Account Settings
+                    </a>
+                    <a href="membership-plans.html">
+                        <i class="fas fa-clipboard-list"></i>
+                        Membership Plans
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Customer Management</h4>
+                    <a href="customers-list.html">
+                        <i class="fas fa-user-friends"></i>
+                        Customer List
+                    </a>
+                    <a href="customers-progress.html">
+                        <i class="fas fa-chart-line"></i>
+                        Progress Tracking
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Store Management</h4>
+                    <a href="store-products.html">
+                        <i class="fas fa-box"></i>
+                        Products
+                    </a>
+                    <a href="store-inventory.html">
+                        <i class="fas fa-warehouse"></i>
+                        Inventory
+                    </a>
+                    <a href="store-settings.html">
+                        <i class="fas fa-store-alt"></i>
+                        Store Settings
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="dashboard-header">
+                <div class="header-wrapper">
+                    <div class="header-content">
+                        <h1>Account Management</h1>
+                        <p class="subtitle">Manage your gym's account settings and membership plans</p>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <!-- Account Settings Section -->
+                <div class="account-section" id="accountSettings">
+                    <div class="section-header">
+                        <h2>Account Settings</h2>
+                        <button class="edit-btn" onclick="toggleEditMode('gymInfo')">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                        </button>
+                    </div>
+                    
+                    <form id="gymInfoForm" class="settings-form">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Gym Name</label>
+                                <input type="text" name="gymName" required disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Owner Name</label>
+                                <input type="text" name="ownerName" required disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" required disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" name="phone" required disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <textarea name="address" rows="3" disabled></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Business Hours</label>
+                                <div class="hours-grid">
+                                    <div class="hours-row">
+                                        <span>Weekdays:</span>
+                                        <input type="time" name="weekdayOpen" disabled> - 
+                                        <input type="time" name="weekdayClose" disabled>
+                                    </div>
+                                    <div class="hours-row">
+                                        <span>Weekends:</span>
+                                        <input type="time" name="weekendOpen" disabled> - 
+                                        <input type="time" name="weekendClose" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions" style="display: none;">
+                            <button type="button" class="cancel-btn" onclick="cancelEdit('gymInfo')">Cancel</button>
+                            <button type="submit" class="save-btn">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/account-management.js"></script>
+</body>
+</html>

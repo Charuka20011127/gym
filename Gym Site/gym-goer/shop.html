@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Shop</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/gym-goer.css">
+    <link rel="stylesheet" href="../assets/css/shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="member-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Member Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    My Profile
+                </a>
+                <a href="meal-plans.html">
+                    <i class="fas fa-utensils"></i>
+                    Meal Plans
+                </a>
+                <a href="workouts.html">
+                    <i class="fas fa-dumbbell"></i>
+                    Workouts
+                </a>
+                <a href="shop.html" class="active">
+                    <i class="fas fa-shopping-cart"></i>
+                    Shop
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="dashboard-header">
+                <h2>Shop</h2>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search products..." id="searchInput">
+                        <button class="search-btn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="shop-icons">
+                        <div class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="badge" id="cartCount">0</span>
+                        </div>
+                        <div class="wishlist-icon" onclick="toggleWishlist()">
+                            <i class="fas fa-heart"></i>
+                            <span class="badge" id="wishlistCount">0</span>
+                        </div>
+                        <div class="notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge">3</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="shop-container">
+                <!-- Categories Filter -->
+                <div class="categories-filter">
+                    <h3>Categories</h3>
+                    <div class="category-list">
+                        <button class="category-btn active" data-category="all">All Products</button>
+                        <button class="category-btn" data-category="supplements">Supplements</button>
+                        <button class="category-btn" data-category="equipment">Equipment</button>
+                        <button class="category-btn" data-category="apparel">Apparel</button>
+                        <button class="category-btn" data-category="accessories">Accessories</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid">
+                    <!-- Product Card Template -->
+                    <div class="product-card" data-category="supplements">
+                        <div class="product-image">
+                            <img src="../assets/images/product-1.jpg" alt="Protein Powder">
+                            <button class="wishlist-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                        <div class="product-info">
+                            <h4>Premium Whey Protein</h4>
+                            <p class="product-description">High-quality protein powder for muscle recovery and growth.</p>
+                            <div class="product-meta">
+                                <span class="price">$49.99</span>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <span>(4.5)</span>
+                                </div>
+                            </div>
+                            <div class="product-actions">
+                                <button class="view-product-btn">View Details</button>
+                                <button class="add-to-cart-btn">
+                                    <i class="fas fa-cart-plus"></i>
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More product cards will be added dynamically -->
+                </div>
+            </div>
+
+            <!-- Product Modal -->
+            <div id="productModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <div class="product-details">
+                        <div class="product-gallery">
+                            <img src="../assets/images/product-1.jpg" alt="Product Image" class="main-image">
+                            <div class="thumbnail-images">
+                                <img src="../assets/images/product-1-thumb1.jpg" alt="Thumbnail 1">
+                                <img src="../assets/images/product-1-thumb2.jpg" alt="Thumbnail 2">
+                                <img src="../assets/images/product-1-thumb3.jpg" alt="Thumbnail 3">
+                            </div>
+                        </div>
+                        <div class="product-info-detailed">
+                            <h2>Premium Whey Protein</h2>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.5 - 128 reviews)</span>
+                            </div>
+                            <div class="price-info">
+                                <span class="price">$49.99</span>
+                                <span class="stock">In Stock</span>
+                            </div>
+                            <div class="product-description">
+                                <h3>Description</h3>
+                                <p>Premium whey protein powder for optimal muscle recovery and growth. Made with high-quality ingredients and delicious flavor.</p>
+                                <ul class="features">
+                                    <li><i class="fas fa-check"></i> 24g protein per serving</li>
+                                    <li><i class="fas fa-check"></i> Low in calories and carbs</li>
+                                    <li><i class="fas fa-check"></i> Easy to mix and digest</li>
+                                    <li><i class="fas fa-check"></i> No artificial sweeteners</li>
+                                </ul>
+                            </div>
+                            <div class="purchase-options">
+                                <div class="quantity-selector">
+                                    <button class="qty-btn minus">-</button>
+                                    <input type="number" value="1" min="1" max="10">
+                                    <button class="qty-btn plus">+</button>
+                                </div>
+                                <button class="buy-now-btn">Buy Now</button>
+                                <button class="add-to-cart-btn">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Sidebar -->
+            <div class="cart-sidebar">
+                <div class="cart-header">
+                    <h3>Shopping Cart</h3>
+                    <button class="close-cart">&times;</button>
+                </div>
+                <div class="cart-items">
+                    <!-- Cart items will be added dynamically -->
+                </div>
+                <div class="cart-summary">
+                    <div class="subtotal">
+                        <span>Subtotal</span>
+                        <span class="amount">$0.00</span>
+                    </div>
+                    <div class="shipping">
+                        <span>Shipping</span>
+                        <span class="amount">$0.00</span>
+                    </div>
+                    <div class="total">
+                        <span>Total</span>
+                        <span class="amount">$0.00</span>
+                    </div>
+                    <button class="checkout-btn">Proceed to Checkout</button>
+                </div>
+            </div>
+
+            <!-- Wishlist Sidebar -->
+            <div class="wishlist-sidebar">
+                <div class="wishlist-header">
+                    <h3>My Wishlist</h3>
+                    <button class="close-wishlist">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="wishlist-items">
+                    <!-- Wishlist items will be dynamically added here -->
+                </div>
+                <div class="wishlist-footer">
+                    <button class="clear-wishlist-btn">Clear Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Checkout Modal -->
+            <div id="checkoutModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <div class="checkout-form">
+                        <h2>Checkout</h2>
+                        <div class="form-section">
+                            <h3>Shipping Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone</label>
+                                    <input type="tel" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address</label>
+                                    <input type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>City</label>
+                                    <input type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Postal Code</label>
+                                    <input type="text" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-section">
+                            <h3>Payment Information</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>Card Number</label>
+                                    <input type="text" placeholder="**** **** **** ****" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" placeholder="MM/YY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" placeholder="***" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-summary">
+                            <h3>Order Summary</h3>
+                            <div class="summary-items">
+                                <!-- Order items will be added dynamically -->
+                            </div>
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span class="amount">$0.00</span>
+                            </div>
+                        </div>
+                        <div class="checkout-actions">
+                            <button class="cancel-btn">Cancel</button>
+                            <button class="confirm-btn">Confirm Order</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notification Toast -->
+            <div class="notification-toast">
+                <i class="fas fa-check-circle"></i>
+                <span class="message"></span>
+                <button class="close-notification">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/shop.js"></script>
+</body>
+</html>

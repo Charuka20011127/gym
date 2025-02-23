@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Store Settings</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/gym-owner.css">
+    <link rel="stylesheet" href="../assets/css/store-management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="owner-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Owner Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>Trainer Management</h4>
+                    <a href="list.html">
+                        <i class="fas fa-users"></i>
+                        View Trainers
+                    </a>
+                    <a href="#" data-toggle="modal" data-target="#addTrainerModal">
+                        <i class="fas fa-user-plus"></i>
+                        Add Trainer
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Gym Management</h4>
+                    <a href="manage.html">
+                        <i class="fas fa-cog"></i>
+                        Account Settings
+                    </a>
+                    <a href="membership-plans.html">
+                        <i class="fas fa-clipboard-list"></i>
+                        Membership Plans
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Customer Management</h4>
+                    <a href="customers-list.html">
+                        <i class="fas fa-user-friends"></i>
+                        Customer List
+                    </a>
+                    <a href="customers-progress.html">
+                        <i class="fas fa-chart-line"></i>
+                        Progress Tracking
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Store Management</h4>
+                    <a href="store-products.html">
+                        <i class="fas fa-box"></i>
+                        Products
+                    </a>
+                    <a href="store-inventory.html">
+                        <i class="fas fa-warehouse"></i>
+                        Inventory
+                    </a>
+                    <a href="store-settings.html" class="active">
+                        <i class="fas fa-store-alt"></i>
+                        Store Settings
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="dashboard-header">
+                <div class="header-wrapper">
+                    <div class="header-content">
+                        <h1>Store Settings</h1>
+                        <p class="subtitle">Configure your store's settings and preferences</p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Store Settings Sections -->
+            <div class="settings-section">
+                <h3>General Settings</h3>
+                <form id="generalSettingsForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Store Name</label>
+                            <input type="text" name="storeName" value="FitFlex Store" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Email</label>
+                            <input type="email" name="email" value="store@fitflex.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Contact Phone</label>
+                            <input type="tel" name="phone" value="+1 234-567-8900" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Currency</label>
+                            <select name="currency" required>
+                                <option value="USD">USD ($)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (£)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="settings-section">
+                <h3>Inventory Settings</h3>
+                <form id="inventorySettingsForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Low Stock Threshold</label>
+                            <input type="number" name="lowStockThreshold" value="10" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Auto Reorder at Stock Level</label>
+                            <input type="number" name="reorderLevel" value="5" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Default Reorder Quantity</label>
+                            <input type="number" name="reorderQuantity" value="20" min="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Stock Notifications</label>
+                            <select name="stockNotifications" required>
+                                <option value="all">All Changes</option>
+                                <option value="low">Low Stock Only</option>
+                                <option value="none">Disabled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="settings-section">
+                <h3>Payment Settings</h3>
+                <form id="paymentSettingsForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Payment Methods</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" name="paymentMethods" value="credit" checked>
+                                    Credit Card
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="paymentMethods" value="debit" checked>
+                                    Debit Card
+                                </label>
+                                <label>
+                                    <input type="checkbox" name="paymentMethods" value="cash" checked>
+                                    Cash
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tax Rate (%)</label>
+                            <input type="number" name="taxRate" value="8.5" min="0" step="0.1" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Invoice Prefix</label>
+                            <input type="text" name="invoicePrefix" value="FF-" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Receipt Footer Message</label>
+                            <textarea name="receiptMessage" rows="2">Thank you for shopping at FitFlex Store!</textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="settings-section">
+                <h3>Shipping Settings</h3>
+                <form id="shippingSettingsForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Default Shipping Method</label>
+                            <select name="defaultShipping" required>
+                                <option value="standard">Standard Shipping</option>
+                                <option value="express">Express Shipping</option>
+                                <option value="pickup">Store Pickup</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Free Shipping Threshold</label>
+                            <input type="number" name="freeShippingThreshold" value="50" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Standard Shipping Rate</label>
+                            <input type="number" name="standardRate" value="5.99" min="0" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Express Shipping Rate</label>
+                            <input type="number" name="expressRate" value="15.99" min="0" step="0.01" required>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/store-management.js"></script>
+</body>
+</html>

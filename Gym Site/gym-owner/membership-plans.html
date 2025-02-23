@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Membership Plans</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/gym-owner.css">
+    <link rel="stylesheet" href="../assets/css/account-management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="owner-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Owner Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>Trainer Management</h4>
+                    <a href="list.html">
+                        <i class="fas fa-users"></i>
+                        View Trainers
+                    </a>
+                    <a href="#" data-toggle="modal" data-target="#addTrainerModal">
+                        <i class="fas fa-user-plus"></i>
+                        Add Trainer
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Gym Management</h4>
+                    <a href="manage.html">
+                        <i class="fas fa-cog"></i>
+                        Account Settings
+                    </a>
+                    <a href="membership-plans.html" class="active">
+                        <i class="fas fa-clipboard-list"></i>
+                        Membership Plans
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Customer Management</h4>
+                    <a href="customers-list.html">
+                        <i class="fas fa-user-friends"></i>
+                        Customer List
+                    </a>
+                    <a href="customers-progress.html">
+                        <i class="fas fa-chart-line"></i>
+                        Progress Tracking
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Store Management</h4>
+                    <a href="store-products.html">
+                        <i class="fas fa-box"></i>
+                        Products
+                    </a>
+                    <a href="store-inventory.html">
+                        <i class="fas fa-warehouse"></i>
+                        Inventory
+                    </a>
+                    <a href="store-settings.html">
+                        <i class="fas fa-store-alt"></i>
+                        Store Settings
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="dashboard-header">
+                <div class="header-wrapper">
+                    <div class="header-content">
+                        <h1>Membership Plans</h1>
+                        <p class="subtitle">Manage your gym's membership plans and pricing</p>
+                    </div>
+                    <button class="add-plan-btn" onclick="openAddPlanModal()">
+                        <i class="fas fa-plus"></i>
+                        Add New Plan
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <div class="plans-grid">
+                    <!-- Example Plan Card -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Basic Plan</h3>
+                            <p class="price">$29.99<span>/month</span></p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Access to gym facilities</li>
+                                <li><i class="fas fa-check"></i> Basic equipment usage</li>
+                                <li><i class="fas fa-check"></i> Locker room access</li>
+                                <li><i class="fas fa-times"></i> Personal trainer sessions</li>
+                                <li><i class="fas fa-times"></i> Group classes</li>
+                            </ul>
+                        </div>
+                        <div class="plan-actions">
+                            <button class="edit-btn" onclick="editPlan('basic')">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                            <button class="delete-btn" onclick="deletePlan('basic')">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Premium Plan -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Premium Plan</h3>
+                            <p class="price">$49.99<span>/month</span></p>
+                        </div>
+                        <div class="plan-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> All Basic Plan features</li>
+                                <li><i class="fas fa-check"></i> Personal trainer sessions</li>
+                                <li><i class="fas fa-check"></i> Nutrition consultation</li>
+                                <li><i class="fas fa-check"></i> Group classes access</li>
+                            </ul>
+                        </div>
+                        <div class="plan-actions">
+                            <button class="edit-btn" onclick="editPlan('premium')">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+                            <button class="delete-btn" onclick="deletePlan('premium')">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add/Edit Plan Modal -->
+            <div id="planModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Add New Plan</h3>
+                    <form id="planForm" class="plan-form">
+                        <div class="form-group">
+                            <label>Plan Name</label>
+                            <input type="text" name="planName" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Price (Monthly)</label>
+                            <div class="price-input">
+                                <span>$</span>
+                                <input type="number" name="price" step="0.01" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Features (one per line)</label>
+                            <textarea name="features" rows="4" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status" required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="cancel-btn" onclick="closePlanModal()">Cancel</button>
+                            <button type="submit" class="save-btn">Save Plan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Modal -->
+            <div id="deleteModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h3>Delete Plan</h3>
+                    <p>Are you sure you want to delete this membership plan? This action cannot be undone.</p>
+                    <div class="modal-actions">
+                        <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+                        <button class="delete-btn" onclick="confirmDelete()">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/membership-plans.js"></script>
+    <script src="../assets/js/membership-management.js"></script>
+</body>
+</html>

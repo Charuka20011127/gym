@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Inventory Management</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/seller.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="seller-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Seller Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-line"></i>
+                    Overview
+                </a>
+                <a href="inventory.html" class="active">
+                    <i class="fas fa-box"></i>
+                    Inventory
+                </a>
+                <a href="orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    Orders
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header class="dashboard-header">
+                <h2>Inventory Management</h2>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search products..." id="searchProducts">
+                    </div>
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="supplements">Supplements</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="apparel">Apparel</option>
+                    </select>
+                    <button class="add-product-btn" id="addProductBtn">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-section">
+                <div class="products-grid">
+                    <!-- Product Card -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="../assets/images/product-placeholder.jpg" alt="Product">
+                            <div class="product-actions">
+                                <button class="edit-btn" title="Edit Product">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="delete-btn" title="Delete Product">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Whey Protein Powder</h3>
+                            <p class="product-category">Supplements</p>
+                            <div class="product-meta">
+                                <span class="price">$49.99</span>
+                                <span class="stock">Stock: 25</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- More product cards... -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Product</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="product-form">
+                    <div class="form-group">
+                        <label>Product Image</label>
+                        <div class="image-upload">
+                            <input type="file" accept="image/*" id="productImage">
+                            <label for="productImage">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>Click to upload image</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Product Name</label>
+                            <input type="text" required placeholder="Enter product name">
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <select required>
+                                <option value="">Select category</option>
+                                <option value="supplements">Supplements</option>
+                                <option value="equipment">Equipment</option>
+                                <option value="apparel">Apparel</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Price ($)</label>
+                            <input type="number" required min="0" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label>Stock Quantity</label>
+                            <input type="number" required min="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea required rows="4" placeholder="Enter product description"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Product</button>
+                        <button type="button" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal delete-modal" id="deleteModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Delete Product</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <i class="fas fa-exclamation-triangle warning-icon"></i>
+                <h4>Are you sure you want to delete this product?</h4>
+                <p>This action cannot be undone.</p>
+                <div class="button-group">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn confirm-delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/inventory.js"></script>
+</body>
+</html> 

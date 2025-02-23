@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Member Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/gym-goer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="member-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Member Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="profile.html">
+                    <i class="fas fa-user"></i>
+                    My Profile
+                </a>
+                <a href="meal-plans.html">
+                    <i class="fas fa-utensils"></i>
+                    Meal Plans
+                </a>
+                <a href="workouts.html">
+                    <i class="fas fa-dumbbell"></i>
+                    Workouts
+                </a>
+                <a href="shop.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    Shop
+                </a>
+                <a href="wishlist.html">
+                    <i class="fas fa-heart"></i>
+                    Wishlist
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header class="dashboard-header">
+                <h2>Welcome Back, John!</h2>
+                <div class="header-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="cart-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge">2</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-grid">
+                <!-- Profile Status -->
+                <div class="dashboard-card profile-status">
+                    <div class="card-header">
+                        <h3>Profile Status</h3>
+                        <a href="profile.html" class="view-all">Complete Profile</a>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" style="width: 75%;">75%</div>
+                    </div>
+                    <div class="pending-items">
+                        <p><i class="fas fa-exclamation-circle"></i> Select a trainer</p>
+                        <p><i class="fas fa-check-circle"></i> Gym registration completed</p>
+                    </div>
+                </div>
+
+                <!-- Current Plans -->
+                <div class="dashboard-card current-plans">
+                    <div class="card-header">
+                        <h3>Current Plans</h3>
+                    </div>
+                    <div class="plans-grid">
+                        <div class="plan-item">
+                            <i class="fas fa-dumbbell"></i>
+                            <h4>Workout Plan</h4>
+                            <p>Strength Training</p>
+                            <a href="workouts.html" class="view-plan">View Plan</a>
+                        </div>
+                        <div class="plan-item">
+                            <i class="fas fa-utensils"></i>
+                            <h4>Meal Plan</h4>
+                            <p>Weight Loss Diet</p>
+                            <a href="meal-plans.html" class="view-plan">View Plan</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="dashboard-card quick-actions">
+                    <div class="card-header">
+                        <h3>Quick Actions</h3>
+                    </div>
+                    <div class="actions-grid">
+                        <a href="trainers.html" class="action-item">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Find Trainer</span>
+                        </a>
+                        <a href="shop.html" class="action-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <span>Shop Products</span>
+                        </a>
+                        <a href="meal-plans.html" class="action-item">
+                            <i class="fas fa-clipboard-list"></i>
+                            <span>Request Meal Plan</span>
+                        </a>
+                        <a href="workouts.html" class="action-item">
+                            <i class="fas fa-running"></i>
+                            <span>Start Workout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Seller Dashboard</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/seller.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="seller-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Seller Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="active">
+                    <i class="fas fa-chart-line"></i>
+                    Overview
+                </a>
+                <a href="inventory.html">
+                    <i class="fas fa-box"></i>
+                    Inventory
+                </a>
+                <a href="orders.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    Orders
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header class="dashboard-header">
+                <h2>Dashboard Overview</h2>
+                <div class="header-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Products</h3>
+                        <p>124</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Orders</h3>
+                        <p>47</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Revenue</h3>
+                        <p>$12,450</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <div class="recent-orders">
+                    <div class="section-header">
+                        <h3>Recent Orders</h3>
+                        <a href="orders.html" class="view-all">View All</a>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Products</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-001</td>
+                                    <td>John Doe</td>
+                                    <td>Protein Powder, BCAA</td>
+                                    <td>$89.99</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                </tr>
+                                <!-- More order rows... -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="low-stock">
+                    <div class="section-header">
+                        <h3>Low Stock Alert</h3>
+                        <a href="inventory.html" class="view-all">View Inventory</a>
+                    </div>
+                    <div class="alert-list">
+                        <div class="alert-item">
+                            <img src="../assets/images/product-placeholder.jpg" alt="Product">
+                            <div class="alert-info">
+                                <h4>Whey Protein - Chocolate</h4>
+                                <p>Only 5 units left</p>
+                            </div>
+                            <a href="inventory.html" class="restock-btn">Restock</a>
+                        </div>
+                        <!-- More alert items... -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

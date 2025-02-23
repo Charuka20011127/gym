@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Trainer Management</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/gym-owner.css">
+    <link rel="stylesheet" href="../assets/css/trainer-management.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="owner-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Owner Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h4>Trainer Management</h4>
+                    <a href="list.html" class="active">
+                        <i class="fas fa-users"></i>
+                        View Trainers
+                    </a>
+                    <a href="#" data-toggle="modal" data-target="#addTrainerModal">
+                        <i class="fas fa-user-plus"></i>
+                        Add Trainer
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Gym Management</h4>
+                    <a href="manage.html">
+                        <i class="fas fa-cog"></i>
+                        Account Settings
+                    </a>
+                    <a href="membership-plans.html">
+                        <i class="fas fa-clipboard-list"></i>
+                        Membership Plans
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Customer Management</h4>
+                    <a href="customers-list.html">
+                        <i class="fas fa-user-friends"></i>
+                        Customer List
+                    </a>
+                    <a href="customers-progress.html">
+                        <i class="fas fa-chart-line"></i>
+                        Progress Tracking
+                    </a>
+                </div>
+
+                <div class="nav-section">
+                    <h4>Store Management</h4>
+                    <a href="store-products.html">
+                        <i class="fas fa-box"></i>
+                        Products
+                    </a>
+                    <a href="store-inventory.html">
+                        <i class="fas fa-warehouse"></i>
+                        Inventory
+                    </a>
+                    <a href="store-settings.html">
+                        <i class="fas fa-store-alt"></i>
+                        Store Settings
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="dashboard-header">
+                <div class="header-wrapper">
+                    <div class="header-content">
+                        <h1>Trainer Management</h1>
+                        <p class="subtitle">View and manage your gym's trainers</p>
+                    </div>
+                    <button class="add-trainer-btn" onclick="openAddTrainerModal()">
+                        <i class="fas fa-plus"></i>
+                        Add New Trainer
+                    </button>
+                </div>
+            </header>
+
+            <!-- Trainer Filters -->
+            <div class="trainer-filters">
+                <div class="filter-group">
+                    <label>Specialization</label>
+                    <select id="specializationFilter">
+                        <option value="">All</option>
+                        <option value="yoga">Yoga</option>
+                        <option value="strength">Strength Training</option>
+                        <option value="cardio">Cardio</option>
+                        <option value="crossfit">CrossFit</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Status</label>
+                    <select id="statusFilter">
+                        <option value="">All</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Sort By</label>
+                    <select id="sortBy">
+                        <option value="name">Name</option>
+                        <option value="experience">Experience</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Trainer List -->
+            <div class="trainer-list">
+                <!-- Example Trainer Card -->
+                <div class="trainer-card">
+                    <div class="trainer-header">
+                        <img src="../assets/images/trainer1.jpg" alt="Trainer" class="trainer-image">
+                        <div class="trainer-status active">Active</div>
+                    </div>
+                    <div class="trainer-info">
+                        <h3>John Smith</h3>
+                        <p class="specialization">Strength Training</p>
+                        <div class="trainer-stats">
+                            <div class="stat">
+                                <i class="fas fa-star"></i>
+                                <span>4.8</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-user-friends"></i>
+                                <span>24 Clients</span>
+                            </div>
+                            <div class="stat">
+                                <i class="fas fa-clock"></i>
+                                <span>5 Years</span>
+                            </div>
+                        </div>
+                        <div class="trainer-tags">
+                            <span class="tag">Weightlifting</span>
+                            <span class="tag">Nutrition</span>
+                            <span class="tag">Personal Training</span>
+                        </div>
+                    </div>
+                    <div class="trainer-actions">
+                        <button class="view-btn" onclick="viewTrainer(1)">
+                            <i class="fas fa-eye"></i>
+                            View
+                        </button>
+                        <button class="edit-btn" onclick="editTrainer(1)">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                        </button>
+                        <button class="delete-btn" onclick="deleteTrainer(1)">
+                            <i class="fas fa-trash"></i>
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Trainer Modal -->
+            <div id="addTrainerModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Add Trainer</h2>
+                    <form id="addTrainerForm">
+                        <input type="text" name="name" placeholder="Trainer Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="phone" placeholder="Phone" required>
+                        <select name="specialization" required>
+                            <option value="strength">Strength Training</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="nutrition">Nutrition</option>
+                        </select>
+                        <input type="number" name="experience" placeholder="Experience (years)" required>
+                        <select name="status" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                        <input type="text" name="certifications" placeholder="Certifications" required>
+                        <textarea name="bio" placeholder="Bio" required></textarea>
+                        <button type="submit">Add Trainer</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Edit Trainer Modal -->
+            <div id="editTrainerModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Edit Trainer</h2>
+                    <form id="editTrainerForm">
+                        <input type="text" name="name" placeholder="Trainer Name" required>
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="tel" name="phone" placeholder="Phone" required>
+                        <select name="specialization" required>
+                            <option value="strength">Strength Training</option>
+                            <option value="cardio">Cardio</option>
+                            <option value="nutrition">Nutrition</option>
+                        </select>
+                        <input type="number" name="experience" placeholder="Experience (years)" required>
+                        <select name="status" required>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                        <input type="text" name="certifications" placeholder="Certifications" required>
+                        <textarea name="bio" placeholder="Bio" required></textarea>
+                        <button type="submit">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- View Trainer Modal -->
+            <div id="viewTrainerModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Trainer Details</h2>
+                    <div>
+                        <p>Name: <span class="trainer-name"></span></p>
+                        <p>Specialization: <span class="trainer-specialization"></span></p>
+                        <p>Status: <span class="trainer-status"></span></p>
+                        <p>Rating: <span class="rating"></span></p>
+                        <p>Clients: <span class="clients"></span></p>
+                        <p>Experience: <span class="experience"></span></p>
+                        <p>Email: <span class="trainer-email"></span></p>
+                        <p>Phone: <span class="trainer-phone"></span></p>
+                        <p>Bio: <span class="trainer-bio"></span></p>
+                        <p>Certifications: <span class="certification-list"></span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Trainer Modal -->
+            <div id="deleteModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">&times;</span>
+                    <h2>Delete Trainer</h2>
+                    <p>Are you sure you want to delete this trainer?</p>
+                    <button id="confirmDeleteBtn" onclick="confirmDelete()">Delete</button>
+                    <button onclick="closeModal('deleteModal')">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/trainer-management.js"></script>
+</body>
+</html>

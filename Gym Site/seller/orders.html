@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Orders Management</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/seller.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="seller-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Seller Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-chart-line"></i>
+                    Overview
+                </a>
+                <a href="inventory.html">
+                    <i class="fas fa-box"></i>
+                    Inventory
+                </a>
+                <a href="orders.html" class="active">
+                    <i class="fas fa-shopping-cart"></i>
+                    Orders
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header class="dashboard-header">
+                <h2>Orders Management</h2>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search orders..." id="searchOrders">
+                    </div>
+                    <select class="filter-select" id="statusFilter">
+                        <option value="all">All Status</option>
+                        <option value="pending">Pending</option>
+                        <option value="processing">Processing</option>
+                        <option value="shipped">Shipped</option>
+                        <option value="delivered">Delivered</option>
+                        <option value="cancelled">Cancelled</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="content-section">
+                <div class="orders-table-container">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Date</th>
+                                <th>Products</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-001</td>
+                                <td class="customer-info">
+                                    <div>
+                                        <span class="customer-name">John Doe</span>
+                                        <span class="customer-email">john@example.com</span>
+                                    </div>
+                                </td>
+                                <td>2024-02-20</td>
+                                <td class="products-info">
+                                    <span class="product-count">2 items</span>
+                                    <span class="product-list">Whey Protein, BCAA</span>
+                                </td>
+                                <td>$89.99</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="view-btn" title="View Details">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="process-btn" title="Process Order">
+                                            <i class="fas fa-cog"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- More order rows... -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order Details Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="order-info">
+                    <div class="info-section">
+                        <h4>Order Information</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Order ID</label>
+                                <p>#ORD-001</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Order Date</label>
+                                <p>2024-02-20</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Status</label>
+                                <p><span class="status pending">Pending</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>Customer Details</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <label>Name</label>
+                                <p>John Doe</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Email</label>
+                                <p>john@example.com</p>
+                            </div>
+                            <div class="info-item">
+                                <label>Phone</label>
+                                <p>+1 234 567 8900</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h4>Products</h4>
+                        <div class="order-products">
+                            <div class="product-item">
+                                <img src="../assets/images/product-placeholder.jpg" alt="Product">
+                                <div class="product-details">
+                                    <h5>Whey Protein</h5>
+                                    <p>Quantity: 1</p>
+                                    <span class="price">$49.99</span>
+                                </div>
+                            </div>
+                            <!-- More product items... -->
+                        </div>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-item">
+                            <span>Subtotal</span>
+                            <span>$89.99</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Shipping</span>
+                            <span>$5.00</span>
+                        </div>
+                        <div class="summary-item total">
+                            <span>Total</span>
+                            <span>$94.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Process Order Modal -->
+    <div class="modal" id="processModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Process Order</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="process-form">
+                    <div class="form-group">
+                        <label>Update Status</label>
+                        <select required>
+                            <option value="">Select status</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tracking Number (optional)</label>
+                        <input type="text" placeholder="Enter tracking number">
+                    </div>
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea rows="3" placeholder="Add notes about the order"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Update Order</button>
+                        <button type="button" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/orders.js"></script>
+</body>
+</html> 

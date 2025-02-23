@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Profile Setup</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/gym-goer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="member-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Member Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="profile.html" class="active">
+                    <i class="fas fa-user"></i>
+                    My Profile
+                </a>
+                <a href="meal-plans.html">
+                    <i class="fas fa-utensils"></i>
+                    Meal Plans
+                </a>
+                <a href="workouts.html">
+                    <i class="fas fa-dumbbell"></i>
+                    Workouts
+                </a>
+                <a href="shop.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    Shop
+                </a>
+                <a href="wishlist.html">
+                    <i class="fas fa-heart"></i>
+                    Wishlist
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header class="dashboard-header">
+                <h2>Complete Your Profile</h2>
+                <div class="setup-progress">
+                    <div class="progress-step active" data-step="1">
+                        <i class="fas fa-user"></i>
+                        <span>Basic Info</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Gym Selection</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <i class="fas fa-user-friends"></i>
+                        <span>Trainer Selection</span>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Payment</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="setup-container">
+                <!-- Step 1: Basic Information -->
+                <div class="setup-step active" id="step1">
+                    <div class="profile-form">
+                        <div class="profile-picture">
+                            <img src="../assets/images/profile-placeholder.jpg" alt="Profile Picture" id="profilePreview">
+                            <label for="profileUpload" class="upload-btn">
+                                <i class="fas fa-camera"></i>
+                                <span>Change Photo</span>
+                            </label>
+                            <input type="file" id="profileUpload" accept="image/*" hidden>
+                        </div>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" value="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" value="john.doe@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <input type="tel" value="+1 234 567 8900" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Date of Birth</label>
+                                <input type="date" value="1990-01-01" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <select required>
+                                    <option value="male" selected>Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Fitness Goal</label>
+                                <select required>
+                                    <option value="weight-loss">Weight Loss</option>
+                                    <option value="muscle-gain" selected>Muscle Gain</option>
+                                    <option value="endurance">Endurance</option>
+                                    <option value="flexibility">Flexibility</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="next-btn" onclick="nextStep(2)">Next: Select Gym</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Gym Selection -->
+                <div class="setup-step" id="step2">
+                    <div class="gym-selection">
+                        <div class="search-filters">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search gyms...">
+                            </div>
+                            <select class="location-filter">
+                                <option value="">All Locations</option>
+                                <option value="downtown">Downtown</option>
+                                <option value="north">North</option>
+                                <option value="south">South</option>
+                                <option value="east">East</option>
+                                <option value="west">West</option>
+                            </select>
+                        </div>
+                        <div class="gyms-grid">
+                            <!-- Gym Cards -->
+                            <div class="gym-card">
+                                <img src="../assets/images/trainer-1.jpg" alt="FitFlex Central">
+                                <div class="gym-info">
+                                    <h3>FitFlex Central</h3>
+                                    <p class="location"><i class="fas fa-map-marker-alt"></i> Downtown</p>
+                                    <div class="features">
+                                        <span><i class="fas fa-parking"></i> Parking</span>
+                                        <span><i class="fas fa-shower"></i> Showers</span>
+                                        <span><i class="fas fa-wifi"></i> WiFi</span>
+                                    </div>
+                                    <div class="gym-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span>(4.5)</span>
+                                    </div>
+                                    <p class="membership-fee">$50/month</p>
+                                    <button class="select-btn">Select Gym</button>
+                                </div>
+                            </div>
+
+                            <div class="gym-card">
+                                <img src="../assets/images/trainer-1.jpg" alt="FitFlex North">
+                                <div class="gym-info">
+                                    <h3>FitFlex North</h3>
+                                    <p class="location"><i class="fas fa-map-marker-alt"></i> North</p>
+                                    <div class="features">
+                                        <span><i class="fas fa-parking"></i> Parking</span>
+                                        <span><i class="fas fa-swimming-pool"></i> Pool</span>
+                                        <span><i class="fas fa-wifi"></i> WiFi</span>
+                                    </div>
+                                    <div class="gym-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(5.0)</span>
+                                    </div>
+                                    <p class="membership-fee">$60/month</p>
+                                    <button class="select-btn">Select Gym</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="back-btn" onclick="prevStep(1)">Back</button>
+                            <button type="button" class="next-btn" onclick="nextStep(3)">Next: Select Trainer</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Trainer Selection -->
+                <div class="setup-step" id="step3">
+                    <div class="trainer-selection">
+                        <div class="search-filters">
+                            <div class="search-box">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search trainers...">
+                            </div>
+                            <select class="specialization-filter">
+                                <option value="">All Specializations</option>
+                                <option value="weight-training">Weight Training</option>
+                                <option value="cardio">Cardio</option>
+                                <option value="yoga">Yoga</option>
+                                <option value="crossfit">CrossFit</option>
+                            </select>
+                        </div>
+                        <div class="trainers-grid">
+                            <!-- Trainer Cards -->
+                            <div class="trainer-card">
+                                <div class="trainer-header">
+                                    <img src="../assets/images/trainer-1.jpg" alt="John Smith">
+                                    <div class="trainer-status available"></div>
+                                </div>
+                                <div class="trainer-info">
+                                    <h3>John Smith</h3>
+                                    <p class="specialization">Weight Training Expert</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                        <span>(4.5)</span>
+                                    </div>
+                                    <p class="experience"><i class="fas fa-clock"></i> 5+ years experience</p>
+                                    <p class="rate">$50/session</p>
+                                    <button class="view-profile-btn" data-trainer-id="trainer1">
+                                        <i class="fas fa-user"></i> View Profile
+                                    </button>
+                                    <button class="select-btn">Select Trainer</button>
+                                </div>
+                            </div>
+
+                            <div class="trainer-card">
+                                <div class="trainer-header">
+                                    <img src="../assets/images/trainer-1.jpg" alt="Sarah Johnson">
+                                    <div class="trainer-status available"></div>
+                                </div>
+                                <div class="trainer-info">
+                                    <h3>Sarah Johnson</h3>
+                                    <p class="specialization">CrossFit Specialist</p>
+                                    <div class="rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>(5.0)</span>
+                                    </div>
+                                    <p class="experience"><i class="fas fa-clock"></i> 7+ years experience</p>
+                                    <p class="rate">$60/session</p>
+                                    <button class="view-profile-btn">View Profile</button>
+                                    <button class="select-btn">Select Trainer</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="back-btn" onclick="prevStep(2)">Back</button>
+                            <button type="button" class="next-btn" onclick="nextStep(4)">Next: Payment</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Payment -->
+                <div class="setup-step" id="step4">
+                    <div class="payment-section">
+                        <div class="summary-card">
+                            <h3>Registration Summary</h3>
+                            <div class="summary-details">
+                                <div class="summary-item">
+                                    <span>Gym Membership (FitFlex Central)</span>
+                                    <span>$50/month</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Trainer Services (John Smith)</span>
+                                    <span>$200/month</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span>Registration Fee</span>
+                                    <span>$25</span>
+                                </div>
+                                <div class="summary-item total">
+                                    <span>Total</span>
+                                    <span>$275</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="payment-form">
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <input type="text" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Name on Card</label>
+                                <input type="text" placeholder="John Doe">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="back-btn" onclick="prevStep(3)">Back</button>
+                            <button type="button" class="complete-btn" onclick="completeRegistration()">Complete Registration</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add this code right before closing body tag -->
+
+    <!-- Trainer Profile Modal -->
+    <div id="trainerProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="trainer-profile">
+                <div class="trainer-header">
+                    <img src="../assets/images/trainer-1.jpg" alt="Trainer" class="trainer-img">
+                    <h2>John Smith</h2>
+                    <p class="trainer-title">Senior Fitness Trainer</p>
+                </div>
+                <div class="trainer-info">
+                    <div class="info-item">
+                        <i class="fas fa-medal"></i>
+                        <p>10+ Years Experience</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-certificate"></i>
+                        <p>Certified Professional Trainer</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <p>500+ Clients Trained</p>
+                    </div>
+                </div>
+                <div class="trainer-bio">
+                    <h3>About Me</h3>
+                    <p>Specialized in strength training and weight loss programs. Dedicated to helping clients achieve their fitness goals through personalized training plans.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/profile-setup.js"></script>
+</body>
+</html> 

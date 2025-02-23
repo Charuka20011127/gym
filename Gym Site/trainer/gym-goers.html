@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitFlex - Gym Goers</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/trainer.css">
+    <link rel="stylesheet" href="../assets/css/gym-goers.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="trainer-dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/images/logo.png" alt="FitFlex Logo" class="logo">
+                <h3>Trainer Dashboard</h3>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html">
+                    <i class="fas fa-user-circle"></i>
+                    My Account
+                </a>
+                <a href="workout-plans.html">
+                    <i class="fas fa-dumbbell"></i>
+                    Workout Plans
+                </a>
+                <a href="meal-plans.html">
+                    <i class="fas fa-utensils"></i>
+                    Meal Plans
+                </a>
+                <a href="gym-goers.html" class="active">
+                    <i class="fas fa-users"></i>
+                    Gym Goers
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="../index.html" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <header class="dashboard-header">
+                <div class="header-title">
+                    <h2>Gym Goers</h2>
+                </div>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search members..." id="searchMembers">
+                    </div>
+                    <select class="filter-select" id="memberFilter">
+                        <option value="all">All Members</option>
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+            </header>
+
+            <div class="content-section">
+                <div class="members-table-container">
+                    <table class="members-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Membership</th>
+                                <th>Current Plan</th>
+                                <th>Progress</th>
+                                <th>Last Visit</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="member-info">
+                                    <img src="../assets/images/profile-placeholder.jpg" alt="Member">
+                                    <div>
+                                        <span class="member-name">John Doe</span>
+                                        <span class="member-email">john.doe@email.com</span>
+                                    </div>
+                                </td>
+                                <td>Premium</td>
+                                <td>Weight Loss Program</td>
+                                <td>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 75%"></div>
+                                        <span>75%</span>
+                                    </div>
+                                </td>
+                                <td>Today</td>
+                                <td><span class="status-badge active">Active</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="view-btn" title="View Details">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="edit-btn" title="Edit Member">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="message-btn" title="Send Message">
+                                            <i class="fas fa-comment"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- More member rows... -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Member Details Modal -->
+    <div class="modal" id="memberModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Member Details</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="member-profile">
+                    <div class="profile-header">
+                        <img src="../assets/images/profile-placeholder.jpg" alt="Member Profile">
+                        <div class="profile-info">
+                            <h4>John Doe</h4>
+                            <p>Member since: Jan 2024</p>
+                            <span class="status-badge active">Active</span>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-sections">
+                        <div class="section">
+                            <h5>Personal Information</h5>
+                            <div class="info-grid">
+                                <div class="info-item">
+                                    <label>Email</label>
+                                    <p>john.doe@email.com</p>
+                                </div>
+                                <div class="info-item">
+                                    <label>Phone</label>
+                                    <p>+1 234 567 8900</p>
+                                </div>
+                                <div class="info-item">
+                                    <label>Age</label>
+                                    <p>28</p>
+                                </div>
+                                <div class="info-item">
+                                    <label>Gender</label>
+                                    <p>Male</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h5>Fitness Goals</h5>
+                            <div class="goals-list">
+                                <span class="goal-tag">Weight Loss</span>
+                                <span class="goal-tag">Muscle Gain</span>
+                                <span class="goal-tag">Strength</span>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h5>Current Plans</h5>
+                            <div class="plans-list">
+                                <div class="plan-item">
+                                    <span class="plan-type">Workout Plan:</span>
+                                    <span class="plan-name">Weight Loss Program</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 75%"></div>
+                                        <span>75%</span>
+                                    </div>
+                                </div>
+                                <div class="plan-item">
+                                    <span class="plan-type">Meal Plan:</span>
+                                    <span class="plan-name">Low Carb Diet</span>
+                                    <div class="progress-bar">
+                                        <div class="progress" style="width: 60%"></div>
+                                        <span>60%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="section">
+                            <h5>Progress Tracking</h5>
+                            <div class="progress-grid">
+                                <div class="progress-item">
+                                    <label>Weight</label>
+                                    <p>82kg → 78kg</p>
+                                    <span class="trend positive">-4kg</span>
+                                </div>
+                                <div class="progress-item">
+                                    <label>Body Fat</label>
+                                    <p>24% → 20%</p>
+                                    <span class="trend positive">-4%</span>
+                                </div>
+                                <div class="progress-item">
+                                    <label>Muscle Mass</label>
+                                    <p>35kg → 37kg</p>
+                                    <span class="trend positive">+2kg</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Member Modal -->
+    <div class="modal" id="editMemberModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Member</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="edit-member-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" required placeholder="Enter full name">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" required placeholder="Enter email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input type="tel" required placeholder="Enter phone number">
+                        </div>
+                        <div class="form-group">
+                            <label>Membership Type</label>
+                            <select required>
+                                <option value="">Select type</option>
+                                <option value="basic">Basic</option>
+                                <option value="premium">Premium</option>
+                                <option value="vip">VIP</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select required>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Assigned Plans</label>
+                            <select multiple>
+                                <option value="plan1">Weight Loss Program</option>
+                                <option value="plan2">Muscle Building</option>
+                                <option value="plan3">Cardio Program</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Save Changes</button>
+                        <button type="button" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Message Modal -->
+    <div class="modal" id="messageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Send Message</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="message-form">
+                    <div class="form-group">
+                        <label>Subject</label>
+                        <input type="text" required placeholder="Enter message subject">
+                    </div>
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea required placeholder="Type your message here..." rows="5"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">Send Message</button>
+                        <button type="button" class="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/gym-goers.js"></script>
+</body>
+</html> 
